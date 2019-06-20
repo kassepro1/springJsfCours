@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>PrimeFaces DataTable Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+  <h:form id="addVehiculeForm" class="form-horizontal">
+    <div class="row">
+<div class="panel panel-info spacer col-md-8">
+<div class="panel-heading"> <h2>VEHICULE </h2></div>
+<div class="panel-body">
+  <hr/>
+  <div class="form-group col-md-4">
+      <h:outputLabel class="control-label">Matricule</h:outputLabel>
+          <h:inputText value="#{carsView.vehicule.matricule}"  class="form-control" validatorMessage="champ obligatoire">
+            </h:inputText>
+  </div>
+   <div class="form-group col-md-4">
+      <h:outputLabel class="control-label ">Marque :</h:outputLabel>
+        <h:inputText value="#{carsView.vehicule.marque}"  class="form-control" validatorMessage="champ obligatoire">
+        </h:inputText>
+  </div>
+   <div class="form-group col-md-4">
+      <h:outputLabel  class="control-label ">Modele :</h:outputLabel>
+        <h:inputText value="#{carsView.vehicule.modele}"  class="form-control" validatorMessage="champ obligatoire">
+        </h:inputText>
+  </div>
+   <div class="form-group col-md-4">
+      <h:outputLabel class="control-label ">Couleur :</h:outputLabel>
+          <h:inputText id="couleur" value="#{carsView.vehicule.couleur}"  class="form-control" validatorMessage="champ obligatoire">
+          </h:inputText>
+  </div>
+   <div class="form-group col-md-4">
+      <h:outputLabel class="control-label ">Prix par Jour :</h:outputLabel>
+          <h:inputText id="prixJ"  value="#{carsView.vehicule.prixJour}"  class="form-control" validatorMessage="champ obligatoire">
+          </h:inputText>
+  </div>
+  <div class="form-group col-md-4">
+    <h:commandButton value="Enregistrer" action="#{carsView.addVehicule()}" class="btn btn-success btnWidth" style="margin-left: 20px;margin-top: 40px;"/>
+</div> 
+  </div>
+    </div>
+    </div>
+</h:form>
+  <p:dataTable var="car" value="#{carsView.cars}">
+    <p:column headerText="Id">
+      <h:outputText value="#{car.id}" />
+    </p:column>
+
+    <p:column headerText="Matricule">
+      <h:outputText value="#{car.matricule}" />
+    </p:column>
+
+    <p:column headerText="Modele">
+      <h:outputText value="#{car.modele}" />
+    </p:column>
+
+    <p:column headerText="Couleur">
+      <h:outputText value="#{car.couleur}" />
+    </p:column>
+      <p:column headerText="Action">
+          <h:form>
+          <h:commandLink style="margin: 5px" action="#{carsView.editVehicule(car)}" styleClass="btn btn-primary btn-sm" value="Editer"/>
+          <h:commandLink  style="margin: 5px" action="#{carsView.deleteVehicule(car)}" styleClass="btn btn-danger btn-sm"  value="Supprimer"/>
+          </h:form>
+      </p:column>
+  </p:dataTable>
+
+</h:body>
+</html>

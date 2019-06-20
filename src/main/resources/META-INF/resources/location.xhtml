@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>LOCATION VEHICULE</title>
+    <style type="text/css">
+        .btnWidth {
+            width: 80px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="row">
+        <h:form id="addClientForm" class="form-horizontal">
+
+        <div class="col-md-6 spacer">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <h2>CLIENTS </h2>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4">Numero Piece</h:outputLabel>
+                        <div class="col-sm-4">
+
+                            <h:inputText value="#{locationBean.location.client.numPiece}" class="form-control">
+                            <f:ajax event="blur" listener="#{locationBean.clientExist}" render=":addClientForm:nom :addClientForm:prenom"/>
+                        </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4" >Nom :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.nom}" id="nom"  class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Prenom :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.prenom}" readonly="true" id="prenom" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4">Telephone :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.tel}" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Adresse :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.adresse}" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Email :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.email}" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Date de Naissance :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.client.dateNais}" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                                <f:convertDateTime type="date" pattern="dd/MM/yyyy"></f:convertDateTime>
+                            </h:inputText>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 spacer">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <h2>Vehicule </h2>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4">Matricule </h:outputLabel>
+                        <div class="col-sm-4">
+
+                            <h:inputText value="#{locationBean.location.vehicule.matricule}" class="form-control">
+                                <f:ajax event="blur" listener="#{locationBean.vehiculeExist}" render=":addClientForm:modele :addClientForm:couleur"/>
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4" >Model :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.vehicule.modele}" id="modele"  class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Couleur :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.vehicule.couleur}" readonly="true" id="couleur" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel class="control-label col-sm-4">Prix Jour</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.vehicule.prixJour}" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel  class="control-label col-sm-4">Marque :</h:outputLabel>
+                        <div class="col-sm-4">
+                            <h:inputText value="#{locationBean.location.vehicule.marque}" id="marque" readonly="true" class="form-control" validatorMessage="champ obligatoire">
+                                <f:validateRequired />
+                            </h:inputText>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </h:form>
+
+</div>
+</h:body>
+</html>

@@ -1,0 +1,13 @@
+
+isquid:UselessImportCheck
+"9Remove this unused import 'javax.annotation.ManagedBean'.(¾¦®Ãúÿÿÿÿ8–úì‘µ-
+[
+squid:S106."9Replace this use of System.out or System.err by a logger.(ÌŞÇ´üÿÿÿÿ8Õÿÿ’µ-
+Wsquid:S3400'"9Remove this method and declare a constant for this value.(êê ı8ôÂ‘µ-
+Msquid:S1948"*Make "location" transient or serializable.(¹¿É‚ÿÿÿÿÿ8èşª’µ-
+Psquid:S1948"2Make "clientRepository" transient or serializable.(¿²ÑĞ8èşª’µ-
+Wsquid:S1948"4Make "vehiculeRepository" transient or serializable.(†Ûà‚ûÿÿÿÿ8Ñ©²”µ-
+Zsquid:S2589/"7Remove this expression which always evaluates to "true"(™¹¬ÿÿÿÿÿ8œË€“µ-
+Usquid:S25897"7Remove this expression which always evaluates to "true"(Ñ•Ù8‚ÅÙ”µ-
+[
+squid:S1066"9Replace this use of System.out or System.err by a logger.(Á½øÿÿÿÿ8ÌÇØ”µ-
